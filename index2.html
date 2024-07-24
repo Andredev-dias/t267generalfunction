@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <h2>Calculadora</h2>
+      <input type="number" id="num1" placeholder="Numero 01" />
+      <input type="number" id="num2" placeholder="Numero 02" />
+      <select id="operador">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+      <button onclick="calcular()">Calcular</button>
+      <p id="resultado">Sua resposta aparece aqui</p>
+    </section>
+
+    <script>
+      function calcular() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        var operador = document.getElementById("operador").value;
+        var resultado;
+
+        switch (operador) {
+          case "+":
+            resultado = num1 + num2;
+            break;
+          case "-":
+            resultado = num1 - num2;
+            break;
+          case "*":
+            resultado = num1 * num2;
+            break;
+          case "/":
+            if (num2 !== 0) {
+              resultado = num1 / num2;
+            } else {
+              resultado = "Erro: divisão por zero";
+            }
+            break;
+          default:
+            resultado = "Operador inválido";
+        }
+
+        document.getElementById("resultado").textContent = resultado;
+      }
+    </script>
+  </body>
+</html>
